@@ -1,14 +1,114 @@
 <!-- Smart or Bike     -->
 <!-- by Brian Cottrell -->
 <!-- 03-21-2015        -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Smart or Bike</title>
-        <link type="text/css" rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <p>Smart or Bike</p>
-    <script src="main.js"></script>
-    </body>
+  <head>
+    <style>
+      body{
+        font-family: sans-serif;
+      }
+      p{
+        position: absolute;
+      }
+      .content{
+        width: 70%;
+        padding-top: 3%;
+        padding-bottom: 100%;
+        margin-left: 15%;
+        border: 2px solid #777;
+      }
+      .element-list{
+        position: absolute;
+        margin-left: 5%;
+      }
+      .element-text{
+        height: 0px;
+      }
+      .hex{
+        position: absolute;
+        width: 100px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+      }
+      .hex-top{
+        border-bottom: 86px solid rgb(128,128,128);
+      }
+      .hex-bottom{
+        margin-top: 50px;
+        border-top: 86px solid rgb(128,128,128);
+      }
+      .data-length{
+        visibility: hidden;
+      }
+      #map-canvas {
+        position: absolute;
+        margin-left: 38%;
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+    <script src='https://maps.googleapis.com/maps/api/js'></script>
+  </head>
+  <body>
+    <div class='content'>
+      <p>Smart or Bike</p>
+      <div id='map-canvas'></div>
+      <div class='element-list'>
+        <% for(var i = 0; i < deviceData.length; i++){ %>
+            <div class='data-element'>
+              <div class='hex hex-top'>
+              </div>
+                <div class='element-text'>
+                  <p class='latitude'><%= deviceData[i].location.latitude %></p>
+                  <br>
+                  <p class='longitude'><%= deviceData[i].location.longitude %></p>
+                  <br>
+                  <p calss='elevation'><%= deviceData[i].location.elevation %></p>
+                  <p class='data-length'><%= deviceData.length %><p>
+                </div>
+              <div class='hex hex-bottom'>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var dataElements = [];
+      for(var i = 0; i < document.getElementsByClassName('data-element').length; i++){
+        dataElements.push(document.getElementsByClassName('data-element')[i]);
+        dataElements[i].style.marginTop = 110*i+'px';
+        dataElements[i].style.marginLeft = 180*(i%2)+'px';
+      }
+    </script>
+    <script>
+      //Google maps script
+      function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(34.050791, -118.2542091),
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+        
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var markers = document.getElementsByClassName('data-length')[0].innerHTML
+        var marker = [];
+        var lat = [];
+        var lng = [];
+        for(var i = 0; i < markers; i++){
+          lat[i] = document.getElementsByClassName('latitude')[i].innerHTML;
+          lng[i] = document.getElementsByClassName('longitude')[i].innerHTML;
+          marker[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(lat[i], lng[i]),
+            map: map,
+            icon: iconBase + 'caution.png'
+          });
+        }
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </body>
 </html>
