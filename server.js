@@ -1,4 +1,4 @@
-/* Smart or Bike      */
+/* Sight Cycle        */
 /* by Brian Cottrell  */
 /* 03-21-2015         */
 
