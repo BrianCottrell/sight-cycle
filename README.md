@@ -1,5 +1,5 @@
-### Sight Cycle
-#Companion Web Application to Bright Cycle Connected Bike Light System
+## Sight Cycle
+###Companion Web Application to Bright Cycle Connected Bike Light System
 
 To build the application, first obtain an AT&T M2X API key by creating an M2X accound.
 
