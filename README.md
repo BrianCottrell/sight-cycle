@@ -15,4 +15,8 @@ run 'npm install' to install dependencies.
 
 run 'npm start' to start the appication locally and view it on localhost:8080.
 
-Connect a device to the M2X network and see its data displayed on the site.
+Connect a device to the M2X network.
+
+Add a stream called events with a 2 digit event code field along with lattitude and longitude.
+
+See the data displayed on the site.
