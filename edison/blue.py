@@ -61,9 +61,9 @@ server_sock.listen(1)
 
 port = server_sock.getsockname()[1]
 
-uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ea"
 
-advertise_service( server_sock, "TestServer",
+advertise_service( server_sock, "Intel Edison",
                    service_id = uuid,
                    service_classes = [ uuid, SERIAL_PORT_CLASS ],
                    profiles = [ SERIAL_PORT_PROFILE ], 
