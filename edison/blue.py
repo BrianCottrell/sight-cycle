@@ -80,18 +80,18 @@ while True:
             if len(data) == 0: break
             print "received [%s]" % data
 
-        if data == 'temp':
-            data = str(read_temp())+'!'
-        elif data == 'lightOn':
-            GPIO.output(17,False)
-            data = 'light on!'
-        elif data == 'lightOff':
-            GPIO.output(17,True)
-            data = 'light off!'
-        else:
-            data = 'WTF!' 
-            client_sock.send(data)
-        print "sending [%s]" % data
+        # if data == 'temp':
+        #     data = str(read_temp())+'!'
+        # elif data == 'lightOn':
+        #     GPIO.output(17,False)
+        #     data = 'light on!'
+        # elif data == 'lightOff':
+        #     GPIO.output(17,True)
+        #     data = 'light off!'
+        # else:
+        #     data = 'WTF!' 
+        #     client_sock.send(data)
+        # print "sending [%s]" % data
 
     except IOError:
         pass
