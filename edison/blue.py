@@ -4,9 +4,9 @@ import time
 import mraa
 from bluetooth import *
 
-os.system(hciconfig hci0 name 'Intel Edison') #[change your device name to something else you fancy]
+os.system("hciconfig hci0 name \\'Intel Edison'\\") #[change your device name to something else you fancy]
 wait(200)
-os.system(hciconfig hci0 piscan)
+os.system("hciconfig hci0 piscan")
 #os.system('modprobe w1-gpio')
 #os.system('modprobe w1-therm')
 
