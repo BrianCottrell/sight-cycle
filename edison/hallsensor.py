@@ -23,7 +23,7 @@ while (Timeout == True):
 	
 	
 	if (x.read(1) == 1):
-		count++
+		count = count + 1
 		print("Rotation" count)
 
 	else if (delta.total_seconds() )== 5000):
