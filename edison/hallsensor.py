@@ -10,7 +10,7 @@ except ImportError:
 count = 0
 
 print (mraa.getVersion())
-x = mraa.Gpio(13)
+x = mraa.Gpio(12)
 x.dir(mraa.DIR_IN)
 
 startTime = datetime.now()
@@ -22,10 +22,14 @@ while (Timeout == True):
 	delta = currentTime - startTime
 	
 	
-	if (x.read(1) == 1):
+	if (x.read() == 1):
 		count = count + 1
 		print("Rotation " , count)
 
 	elif (delta.total_seconds() == 5000):
-		quit()
+		Timeout = False
 
+	else:
+		Timeout = True
+
+quit()
