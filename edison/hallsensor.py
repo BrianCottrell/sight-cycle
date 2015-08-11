@@ -26,6 +26,6 @@ while (Timeout == True):
 		count = count + 1
 		print("Rotation " , count)
 
-	else if (delta.total_seconds() )== 5000):
+	else if (delta.total_seconds() == 5000):
 		quit()
 
