@@ -7,6 +7,7 @@ except ImportError:
 	print("Mraa failed to import")
 	quit()
 
+count = 0
 
 print (mraa.getVersion())
 x = mraa.Gpio(13)
