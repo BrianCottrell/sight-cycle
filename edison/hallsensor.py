@@ -14,10 +14,9 @@ x.dir(mraa.DIR_IN)
 
 startTime = datetime.now()
 
+Timeout = True
 
-bool Timeout = True
-
-while Timeout==True:
+while (Timeout == True):
 	currentTime = datetime.now()
 	delta = currentTime - startTime
 	
