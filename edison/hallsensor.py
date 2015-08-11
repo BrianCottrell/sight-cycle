@@ -22,7 +22,7 @@ while (Timeout == True):
 	delta = currentTime - startTime
 	
 	
-	if (x.read() ==):
+	if (x.read() == 0):
 		count = count + 1
 		print("Rotation " , count)
 
